@@ -98,11 +98,15 @@ main {
   -webkit-text-fill-color: white;
   -webkit-text-stroke: 1px;
 }
-.meme-text.top {
+.top,
+.bottom {
   position: absolute;
+  max-width: 100%;
+  text-align: center;
+}
+.meme-text.top {
   top: 10px;
 }
 .meme-text.bottom {
-  position: absolute;
   bottom: 10px;
 }
