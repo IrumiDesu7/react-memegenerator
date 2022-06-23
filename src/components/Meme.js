@@ -5,7 +5,7 @@ export default function Meme() {
   const [meme, setMeme] = useState({
     topText: '',
     bottomText: '',
-    imgUrl: '',
+    imgUrl: 'https://i.imgflip.com/26hg.jpg',
   });
 
   function getMemeUrl() {
@@ -15,24 +15,41 @@ export default function Meme() {
     }));
   }
 
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setMeme((prevMeme) => ({
+      ...prevMeme,
+      [name]: value,
+    }));
+  }
+
   return (
     <main>
       <form className='meme-form'>
-        <input type='text' name='top' id='top' placeholder='Shut up' />
         <input
           type='text'
-          name='bottom'
-          id='bottom'
+          name='topText'
+          id='topText'
+          placeholder='Shut up'
+          value={meme.topText}
+          onChange={handleChange}
+        />
+        <input
+          type='text'
+          name='bottomText'
+          id='bottomText'
           placeholder='and take my money'
+          value={meme.bottomText}
+          onChange={handleChange}
         />
         <button type='button' onClick={getMemeUrl} id='submitBtn'>
           Get a new meme🌄
         </button>
       </form>
       <div className='imageContainer'>
-        {meme.imgUrl !== '' && (
-          <img className='meme-img' src={meme.imgUrl} alt='Funny meme' />
-        )}
+        <img className='meme-img' src={meme.imgUrl} alt='Funny meme' />
+        <h2 className='meme-text top'>{meme.topText}</h2>
+        <h2 className='meme-text bottom'>{meme.bottomText}</h2>
       </div>
     </main>
   );

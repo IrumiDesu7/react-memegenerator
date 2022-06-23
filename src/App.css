@@ -17,8 +17,8 @@ header {
 .logo {
   display: flex;
   align-items: center;
-  gap: 6.7px;
-  margin-left: 20px;
+  /* gap: 6.7px; */
+  margin-left: 40px;
 }
 .troll {
   width: 31.31;
@@ -78,13 +78,31 @@ main {
   transform: translateY(2px);
 }
 .imageContainer {
+  position: relative;
   display: flex;
   justify-content: center;
+  margin-top: 36px;
   align-items: center;
 }
 .meme-img {
   max-width: 100%;
   max-height: 519px;
-  margin-top: 36px;
   border-radius: 2px;
+}
+.meme-text {
+  font-family: 'Impact', sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 39px;
+  color: black;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke: 1px;
+}
+.meme-text.top {
+  position: absolute;
+  top: 10px;
+}
+.meme-text.bottom {
+  position: absolute;
+  bottom: 10px;
 }
